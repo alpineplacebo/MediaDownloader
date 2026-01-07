@@ -1,21 +1,27 @@
 # MediaDownloader
 
-A simple and efficient media downloader application, more common user-friendly bundle for yt-dlp.
+Media downloader application using yt-dlp, providing a graphic interface for ease of use for more common users.
 
 ## Credits
 
-Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp).
+Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp) and [FFmpeg](https://www.ffmpeg.org/)..
 
 ## Installation
 
-### Prerequisites
+### Windows PowerShell
 
-- Python 3.10 or higher
-- [ffmpeg](https://ffmpeg.org/download.html) (required for media processing)
+To install the app as .exe(AppData\Local)
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/alpineplacebo/MediaDownloader/master/install.ps1'))
+```
 
 ### Running from Source
 
 You can install dependencies using `uv` or `pip`.
+To run:
+- Python 3.10 or higher
+- [ffmpeg](https://ffmpeg.org/download.html) (required for media processing)
 
 #### Using uv
 
@@ -46,10 +52,3 @@ To build a standalone executable:
 uv run pyinstaller MediaDownloader.spec
 ```
 
-### One-Line Install (PowerShell)
-
-To install the app with a single command:
-
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/alpineplacebo/MediaDownloader/master/install.ps1'))
-```
