@@ -17,7 +17,7 @@ Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp).
 
 You can install dependencies using `uv` (recommended) or `pip`.
 
-#### Like a pro (using uv)
+#### Using uv
 
 ```bash
 # Install uv if you haven't already
