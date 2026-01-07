@@ -60,21 +60,10 @@ class YtDlpWorker(QObject):
             filename = default_filename_func(info_dict)
             base_path = Path(filename)
             
-            # If path is absolute, use it. If relative, resolve against download_dir (if yt-dlp didn't)
-            # yt-dlp typically returns full path if 'paths' is set? 
-            # Actually prepare_filename returns what will be used.
-            # If 'paths' is set in opts, yt-dlp combines it later or prepare_filename should handle?
-            # Standard yt-dlp prepare_filename usually returns just basename if outtmpl is simple?
-            # Let's ensure we check the full path.
-            
-            # Simple approach: Check if file exists.
-            # However, ensure we don't break directory structure if outtmpl has slash.
-            
             if not base_path.exists():
                 return filename
 
             # File exists, find a unique name
-            # Split stem and suffix
             folder = base_path.parent
             stem = base_path.stem
             suffix = base_path.suffix
@@ -102,11 +91,9 @@ class YtDlpWorker(QObject):
 
         try:
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                # Monkey patch or set the method on the instance to wrap the original
                 original_prepare_filename = ydl.prepare_filename
                 
                 def collision_avoidance_wrapper(info, *args, **kwargs):
-                    # Call original to get standard name, passing any extra args
                     path_str = original_prepare_filename(info, *args, **kwargs)
                     path = Path(path_str)
                     
@@ -141,13 +128,11 @@ class YtDlpWorker(QObject):
                     time.sleep(0.5)
 
                     try:
-                        # Resolve absolute path
                         file_path = Path(self._current_filename)
                         if not file_path.is_absolute():
                             file_path = download_dir / file_path
                         
                         # Find all related files (including fragments) using glob
-                        # We look for files starting with the same stem and in the same folder
                         folder = file_path.parent
                         name_pattern = file_path.name + "*"
                         
@@ -155,21 +140,19 @@ class YtDlpWorker(QObject):
                         if folder.exists():
                            candidates = list(folder.glob(name_pattern))
 
-                        # Also add explicitly if glob missed (unlikely but safe)
                         if file_path not in candidates:
                             candidates.append(file_path)
 
                         for path in candidates:
                             if path.exists():
-                                # Retry loop for file locking
                                 for _ in range(3):
                                     try:
                                         os.remove(path)
                                         break # Success
                                     except PermissionError:
-                                        time.sleep(0.5) # Wait and retry
+                                        time.sleep(0.5) 
                                     except OSError:
-                                        break # Other error, skip
+                                        break 
                     except Exception:
                         pass
                 
