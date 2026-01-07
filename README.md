@@ -8,6 +8,14 @@ Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp) and [FFmpeg](https://www.f
 
 ## Installation
 
+### Windows PowerShell
+
+To install the app as .exe(AppData\Local)
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/alpineplacebo/MediaDownloader/master/install.ps1'))
+```
+
 ### Prerequisites
 
 - Python 3.10 or higher
@@ -46,10 +54,3 @@ To build a standalone executable:
 uv run pyinstaller MediaDownloader.spec
 ```
 
-### One-Line Install (PowerShell)
-
-To install the app with a single command:
-
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/alpineplacebo/MediaDownloader/master/install.ps1'))
-```
