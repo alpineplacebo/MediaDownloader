@@ -48,12 +48,8 @@ uv run pyinstaller MediaDownloader.spec
 
 ### One-Line Install (PowerShell)
 
-To install, you must have the **[GitHub CLI (gh)](https://cli.github.com/)** installed and authenticated.
-
-Run this command in PowerShell:
+To install the app with a single command:
 
 ```powershell
-gh api -H "Accept: application/vnd.github.v3.raw" /repos/alpineplacebo/MediaDownloader/contents/install.ps1 | iex
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/alpineplacebo/MediaDownloader/master/install.ps1'))
 ```
-
-> **Note**: Since this is a private repository, `gh` handles the authentication required to download the script and the application.
