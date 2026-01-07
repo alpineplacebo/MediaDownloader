@@ -1,6 +1,6 @@
 # MediaDownloader
 
-A simple and efficient media downloader application, more common user-friendly bundle for yt-dlp.
+Media downloader application using yt-dlp, providing a graphic interface for ease of use for more common users.
 
 ## Credits
 
