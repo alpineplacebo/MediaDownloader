@@ -37,12 +37,16 @@ class YtDlpWorker(QObject):
                 'no_warnings': True,
                 'skip_download': True,
                 'noplaylist': True,
+                'extract_flat':'in_playlist',
+                'force_ipv4':True,
             }
             if cookies_browser and cookies_browser != "None":
                 ydl_opts['cookiesfrombrowser'] = (cookies_browser,)
 
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=False)
+                if 'entries' in info and info['entries']:
+                    info = info['entries'][0] # Take the first video if it's a playlist link
                 self.info_ready.emit(info)
         except Exception as e:
             self.error_occurred.emit(str(e))
