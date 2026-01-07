@@ -3,6 +3,12 @@ from PyQt6.QtCore import QObject, pyqtSignal, QThread
 from pathlib import Path
 import os
 import re
+import sys
+
+def get_ffmpeg_path():
+    if getattr(sys, 'frozen', False):
+        return sys._MEIPASS
+    return None
 
 class YtDlpWorker(QObject):
     """
@@ -30,6 +36,7 @@ class YtDlpWorker(QObject):
                 'quiet': True,
                 'no_warnings': True,
                 'skip_download': True,
+                'noplaylist': True,
             }
             if cookies_browser and cookies_browser != "None":
                 ydl_opts['cookiesfrombrowser'] = (cookies_browser,)
@@ -86,6 +93,10 @@ class YtDlpWorker(QObject):
 
         if cookies_browser and cookies_browser != "None":
             ydl_opts['cookiesfrombrowser'] = (cookies_browser,)
+
+        ffmpeg_path = get_ffmpeg_path()
+        if ffmpeg_path:
+            ydl_opts['ffmpeg_location'] = ffmpeg_path
 
         ydl_opts.update(opts)
 

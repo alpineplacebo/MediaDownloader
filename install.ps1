@@ -2,7 +2,7 @@
 # Installs the latest release of MediaDownloader
 
 $ErrorActionPreference = "Stop"
-$repo = "alpineplacebo/MediaDownloader"
+$repo = "alpineplacebo/MediaDownloader-yt-dlp"
 $installDir = "$env:LOCALAPPDATA\MediaDownloader"
 $exeName = "MediaDownloader.exe"
 
