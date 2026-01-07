@@ -15,7 +15,7 @@ Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp).
 
 ### Running from Source
 
-You can install dependencies using `uv` (recommended) or `pip`.
+You can install dependencies using `uv` or `pip`.
 
 #### Using uv
 
@@ -45,8 +45,6 @@ To build a standalone executable:
 ```bash
 uv run pyinstaller MediaDownloader.spec
 ```
-
-The executable will be located in the `dist` folder.
 
 ### One-Line Install (PowerShell)
 
