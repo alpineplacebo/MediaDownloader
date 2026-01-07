@@ -47,7 +47,7 @@ python main.py
 ### Building the Executable
 
 To build a standalone executable:
-Download [ffmpeg](https://ffmpeg.org/download.html) and drop in bin/, so it has bin/ffmpeg.exe and bin/ffprobe.exe
+Download [ffmpeg](https://ffmpeg.org/download.html) and drop in bin/, so your project folder has both bin/ffmpeg.exe and bin/ffprobe.exe
 ```bash
 uv run pyinstaller MediaDownloader.spec
 ```
