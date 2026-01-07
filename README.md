@@ -4,7 +4,7 @@ A simple and efficient media downloader application, more common user-friendly b
 
 ## Credits
 
-Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp).
+Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp) and [FFmpeg](https://www.ffmpeg.org/)..
 
 ## Installation
 
