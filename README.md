@@ -50,10 +50,12 @@ The executable will be located in the `dist` folder.
 
 ### One-Line Install (PowerShell)
 
-If this repository is **public**, you can install the app with a single command:
+To install, you must have the **[GitHub CLI (gh)](https://cli.github.com/)** installed and authenticated.
+
+Run this command in PowerShell:
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/alpineplacebo/MediaDownloader/master/install.ps1'))
+gh api -H "Accept: application/vnd.github.v3.raw" /repos/alpineplacebo/MediaDownloader/contents/install.ps1 | iex
 ```
 
-> **Note**: If this repository is **private**, you will need to manually download the release or authenticate your requests.
+> **Note**: Since this is a private repository, `gh` handles the authentication required to download the script and the application.
