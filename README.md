@@ -15,7 +15,7 @@ Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp).
 
 ### Running from Source
 
-You can install dependencies using `uv` (recommended) or `pip`.
+You can install dependencies using `uv` or `pip`.
 
 #### Using uv
 
@@ -46,14 +46,12 @@ To build a standalone executable:
 uv run pyinstaller MediaDownloader.spec
 ```
 
-The executable will be located in the `dist` folder.
 
 ### One-Line Install (PowerShell)
 
-If this repository is **public**, you can install the app with a single command:
+you can install the app with a single command:
 
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/alpineplacebo/MediaDownloader/master/install.ps1'))
 ```
 
-> **Note**: If this repository is **private**, you will need to manually download the release or authenticate your requests.
