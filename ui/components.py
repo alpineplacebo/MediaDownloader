@@ -20,14 +20,12 @@ class FlexibleLabel(QLabel):
         # Report desired size as roughly 3 lines of text
         metrics = QFontMetrics(self.font())
         line_height = metrics.lineSpacing()
-        # 3 lines + a little padding
+    
         return QSize(0, line_height * 3)
 
     def minimumSizeHint(self):
         # Allow shrinking freely
         return QSize(0, 0)
-
-# Removed ElidedLabel class as we are switching to wrapping with max height constraints
 
 class VideoCard(QFrame):
     def __init__(self, parent=None):
@@ -53,14 +51,8 @@ class VideoCard(QFrame):
         self.title_label = FlexibleLabel("Video Title")
         self.title_label.setStyleSheet("font-weight: bold; font-size: 16px;")
         
-        # NOTE: Removed setMaximumHeight to allow user resizing
-        # The FlexibleLabel class handles size policies to prevent auto-expansion
-        
         self.duration_label = QLabel("Duration: --:--")
-        # Inline style here is okay-ish but better in CSS, but let's leave it for specific tweaks
-        # Actually in dark mode this color #49454F might be invisible on dark background.
-        # Let's remove inline style and use a class/object name or just let global label style handle it.
-        # Ideally we should set an object name and style it in styles.py to use `ON_SURFACE_VARIANT`
+
         self.duration_label.setObjectName("DurationLabel") 
 
         self.info_layout.addWidget(self.title_label)
@@ -91,7 +83,6 @@ class MaterialComboBox(QComboBox):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setCursor(Qt.CursorShape.PointingHandCursor)
-        # Style is now handled globally in styles.py
 
 class MaterialButton(QPushButton):
     def __init__(self, text, primary=True, parent=None):
@@ -102,7 +93,6 @@ class MaterialButton(QPushButton):
         else:
             self.setObjectName("SecondaryButton")
         
-        # Add shadow for elevation
         if primary:
             shadow = QGraphicsDropShadowEffect(self)
             shadow.setBlurRadius(8)
