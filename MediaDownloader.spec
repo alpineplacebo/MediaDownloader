@@ -5,8 +5,8 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[
-        ('C:\\FFmpeg\\ffmpeg-2025-09-18-git-c373636f55-full_build\\bin\\ffmpeg.exe', '.'),
-        ('C:\\FFmpeg\\ffmpeg-2025-09-18-git-c373636f55-full_build\\bin\\ffprobe.exe', '.')
+        ('bin/ffmpeg.exe', '.'),
+        ('bin/ffprobe.exe', '.')
     ],
     datas=[],
     hiddenimports=[],
