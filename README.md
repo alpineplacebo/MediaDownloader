@@ -16,14 +16,12 @@ To install the app as .exe(AppData\Local)
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/alpineplacebo/MediaDownloader/master/install.ps1'))
 ```
 
-### Prerequisites
-
-- Python 3.10 or higher
-- [ffmpeg](https://ffmpeg.org/download.html) (required for media processing)
-
 ### Running from Source
 
 You can install dependencies using `uv` or `pip`.
+To run:
+- Python 3.10 or higher
+- [ffmpeg](https://ffmpeg.org/download.html) (required for media processing)
 
 #### Using uv
 
