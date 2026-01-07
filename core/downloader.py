@@ -30,6 +30,7 @@ class YtDlpWorker(QObject):
                 'quiet': True,
                 'no_warnings': True,
                 'skip_download': True,
+                'noplaylist': True,
             }
             if cookies_browser and cookies_browser != "None":
                 ydl_opts['cookiesfrombrowser'] = (cookies_browser,)
